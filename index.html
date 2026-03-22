@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#4cc9f0">
+<title>🏰 ディズニー旅行プラン Aプラン</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+:root {
+  --cream:   #fff8f0;
+  --white:   #ffffff;
+  --bg:      #1a1a2e;
+  --surface: #ffffff;
+  --card:    #ffffff;
+  --border:  #f0e8de;
+  --shadow:  rgba(0, 0, 0, 0.2);
+  --text:    #2d2318;
+  --text2:   #6b5744;
+  --dim:     #b8a898;
+
+  --orange:  #ff8c42;
+  --orange2: #ff6b1a;
+  --yellow:  #ffd166;
+  --pink:    #ff9eb5;
+  --blue:    #4cc9f0;
+  --teal:    #06d6a0;
+  --purple:  #b388ff;
+  --red:     #ff6b6b;
+
+  --sea-c:   #4cc9f0;
+  --sea-bg:  #e8f8fd;
+  --land-c:  #06d6a0;
+  --land-bg: #e4faf4;
+
+  --radius: 18px;
+  --radius-sm: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: var(--text);
+  font-family: 'Noto Sans JP', 'Nunito', sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fffacd, transparent),
+    radial-gradient(3px 3px at 50px 160px, #ffffff, transparent),
+    radial-gradient(2px 2px at 90px 40px, #e0ffff, transparent),
+    radial-gradient(3px 3px at 130px 80px, #ffffff, transparent),
+    radial-gradient(2px 2px at 160px 120px, #fffacd, transparent),
+    radial-gradient(4px 4px at 200px 50px, #ffffff, transparent),
+    radial-gradient(2px 2px at 220px 140px, #e0ffff, transparent),
+    radial-gradient(3px 3px at 270px 90px, #ffffff, transparent),
+    radial-gradient(2px 2px at 300px 30px, #fffacd, transparent),
+    radial-gradient(1.5px 1.5px at 15px 100px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 65px 15px, #e0ffff, transparent),
+    radial-gradient(2px 2px at 110px 130px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 175px 65px, #fffacd, transparent),
+    radial-gradient(2px 2px at 240px 110px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 285px 155px, #e0ffff, transparent),
+    radial-gradient(1px 1px at 35px 55px, #ffffff, transparent),
+    radial-gradient(1px 1px at 80px 95px, #fffacd, transparent),
+    radial-gradient(1px 1px at 145px 25px, #ffffff, transparent),
+    radial-gradient(1px 1px at 190px 145px, #e0ffff, transparent),
+    radial-gradient(1px 1px at 255px 75px, #ffffff, transparent),
+    radial-gradient(1px 1px at 295px 5px, #fffacd, transparent);
+  background-size: 320px 170px;
+  background-repeat: repeat;
+  animation: sparkle 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.03) 45%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.03) 55%, transparent 60%),
+    linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.02) 45%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 55%, transparent 60%);
+  background-size: 200px 200px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ===== HEADER ===== */
+.hdr {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 35%, #24243e 65%, #0f0c29 100%);
+  background-size: 400% 400%;
+  animation: hdrGradient 10s ease infinite;
+  padding: 48px 20px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.hdr::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 2px, transparent 2px),
+    radial-gradient(circle at 25% 80%, rgba(100,200,255,0.9) 3px, transparent 3px),
+    radial-gradient(circle at 45% 15%, rgba(255,255,255,0.7) 2px, transparent 2px),
+    radial-gradient(circle at 60% 70%, rgba(150,100,255,0.8) 3px, transparent 3px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.9) 2px, transparent 2px),
+    radial-gradient(circle at 90% 85%, rgba(100,255,200,0.8) 2px, transparent 2px),
+    radial-gradient(circle at 15% 50%, rgba(255,200,255,0.6) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 35% 35%, rgba(200,255,255,0.7) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 55% 55%, rgba(255,255,255,0.5) 1px, transparent 1px),
+    radial-gradient(circle at 70% 10%, rgba(100,150,255,0.6) 2px, transparent 2px),
+    radial-gradient(circle at 85% 60%, rgba(255,255,255,0.6) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 95% 45%, rgba(200,200,255,0.7) 1px, transparent 1px);
+  background-size: 200px 100px;
+  animation: hdrSparkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.hdr::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(ellipse 80px 50px at 20% 80%, rgba(100,150,255,0.15), transparent),
+    radial-gradient(ellipse 60px 40px at 70% 20%, rgba(150,100,255,0.1), transparent),
+    radial-gradient(ellipse 100px 60px at 50% 50%, rgba(50,100,200,0.1), transparent);
+  pointer-events: none;
+}
+@keyframes hdrGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes hdrSparkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.hdr-icon { font-size: 3rem; display: block; margin-bottom: 8px; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15)); }
+.hdr h1 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem; font-weight: 900;
+  color: white; letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  margin-bottom: 4px;
+}
+.hdr-sub {
+  color: rgba(255,255,255,0.95);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* ===== MAIN ===== */
+.main {
+  padding: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SECTION ===== */
+.sec {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.sec-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-title .icon {
+  font-size: 1.4rem;
+}
+
+/* ===== BASIC INFO ===== */
+.info-grid {
+  display: grid;
+  gap: 12px;
+}
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+}
+.info-item .icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.info-item .label {
+  font-size: 0.75rem;
+  color: var(--dim);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.info-item .value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ===== DAY CARD ===== */
+.day-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.day-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.day-header.sea {
+  background: linear-gradient(135deg, var(--sea-c), #7dd3fc);
+}
+.day-header.land {
+  background: linear-gradient(135deg, var(--land-c), #34d399);
+}
+.day-header .day-num {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+.day-header .day-info {
+  color: white;
+}
+.day-header .day-date {
+  font-weight: 800;
+  font-size: 1rem;
+}
+.day-header .day-park {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.day-content {
+  padding: 16px 20px;
+}
+
+/* ===== TIMELINE ===== */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+}
+.time-item {
+  position: relative;
+  margin-bottom: 16px;
+}
+.time-item:last-child {
+  margin-bottom: 0;
+}
+.time-item::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  background: var(--orange);
+  border-radius: 50%;
+  border: 2px solid var(--card);
+}
+.time-item.transport::before { background: var(--blue); }
+.time-item.hotel::before { background: var(--pink); }
+.time-item.food::before { background: var(--orange); }
+.time-item.ride::before { background: var(--red); }
+.time-item.shop::before { background: var(--teal); }
+
+.time-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--orange);
+  background: #fff5e8;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+}
+.time-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.time-desc {
+  font-size: 0.85rem;
+  color: var(--text2);
+  line-height: 1.5;
+}
+.time-desc ul {
+  margin-left: 16px;
+  margin-top: 4px;
+}
+.time-desc li {
+  margin-bottom: 2px;
+}
+.time-desc .highlight {
+  background: #fff0f5;
+  color: #e11d48;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.time-desc .tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin: 2px 2px 2px 0;
+  font-weight: 600;
+}
+.tag.food { background: #fff5e8; color: #ea580c; }
+.tag.ride { background: #fff0f0; color: #dc2626; }
+.tag.shop { background: #e4faf4; color: #059669; }
+.tag.show { background: #f3eeff; color: #7c3aed; }
+.tag.hotel { background: #fff0f5; color: #db2777; }
+.tag.tip { background: #fef3c7; color: #b45309; }
+
+/* ===== FOOD TABLE ===== */
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.food-table th {
+  background: var(--cream);
+  padding: 10px 8px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--text);
+  border-radius: 8px 8px 0 0;
+}
+.food-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.food-table tr:last-child td {
+  border-bottom: none;
+}
+.food-table .day-col { width: 60px; font-weight: 700; color: var(--blue); }
+.food-table .meal-col { width: 70px; font-weight: 600; }
+
+/* ===== SHOPPING LIST ===== */
+.shop-list {
+  display: grid;
+  gap: 12px;
+}
+.shop-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #e4faf4;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--teal);
+}
+.shop-item .icon {
+  font-size: 1.2rem;
+}
+.shop-item .name {
+  font-weight: 700;
+  color: var(--text);
+}
+.shop-item .price {
+  font-size: 0.85rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+.shop-item .note {
+  font-size: 0.8rem;
+  color: var(--text2);
+  margin-top: 2px;
+}
+
+/* ===== TIPS BOX ===== */
+.tip-box {
+  background: #fef3c7;
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin-top: 12px;
+  border-left: 4px solid #f59e0b;
+}
+.tip-box .tip-title {
+  font-weight: 700;
+  color: #b45309;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tip-box .tip-content {
+  font-size: 0.85rem;
+  color: #78350f;
+  line-height: 1.5;
+}
+
+/* ===== NAV TABS ===== */
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--card);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-tab {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text2);
+  background: var(--cream);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-tab.active {
+  background: var(--orange);
+  color: white;
+}
+.nav-tab:active {
+  transform: scale(0.95);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--dim);
+  font-size: 0.8rem;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.gallery-item {
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.gallery-item img:hover {
+  transform: scale(1.02);
+}
+.gallery-item .caption {
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: var(--text2);
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <span class="hdr-icon">🏰</span>
+  <h1>東京ディズニーリゾート旅行プラン</h1>
+  <div class="hdr-sub">Aプラン ✨ 2025年4月7日〜9日 2泊3日</div>
+</header>
+
+<nav class="nav-tabs">
+  <button class="nav-tab active" onclick="showDay(0)">📋 基本</button>
+  <button class="nav-tab" onclick="showDay(1)">DAY1</button>
+  <button class="nav-tab" onclick="showDay(2)">DAY2</button>
+  <button class="nav-tab" onclick="showDay(3)">DAY3</button>
+  <button class="nav-tab" onclick="showDay(4)">🍽️ 食事</button>
+  <button class="nav-tab" onclick="showDay(5)">📸 画像</button>
+  <button class="nav-tab" onclick="showDay(6)">🛍️ 買い物</button>
+</nav>
+
+<main class="main">
+
+<!-- 基本情報 -->
+<section class="sec" id="sec-0">
+  <h2 class="sec-title"><span class="icon">📋</span>基本情報</h2>
+  <div class="info-grid">
+    <div class="info-item">
+      <span class="icon">📅</span>
+      <div>
+        <div class="label">旅行期間</div>
+        <div class="value">2025年4月7日（月）〜4月9日（水）<br>2泊3日</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">👥</span>
+      <div>
+        <div class="label">同行者</div>
+        <div class="value">大人1名・子供1名（13歳）</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">🚃</span>
+      <div>
+        <div class="label">出発</div>
+        <div class="value">中野 10:09発 → 舞浜 10:56着<br>（JR中央線快速→京葉線・¥483）</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">🏨</span>
+      <div>
+        <div class="label">4/7〜8 宿泊</div>
+        <div class="value">ファンタジースプリングスホテル</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">🧸</span>
+      <div>
+        <div class="label">4/8〜9 宿泊</div>
+        <div class="value">トイ・ストーリーホテル</div>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="icon">🏠</span>
+      <div>
+        <div class="label">帰路</div>
+        <div class="value">4/9 トイホのんびり後・帰宅</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<div class="day-card" id="sec-1">
+  <div class="day-header sea">
+    <div class="day-num">DAY1</div>
+    <div class="day-info">
+      <div class="day-date">4/7（月）</div>
+      <div class="day-park">ディズニーシー 🚃</div>
+    </div>
+  </div>
+  <div class="day-content">
+    <div class="timeline">
+      <div class="time-item transport">
+        <div class="time-badge">10:09→10:56</div>
+        <div class="time-title">移動・チェックイン前</div>
+        <div class="time-desc">中野 → 舞浜（JR中央線快速→京葉線）</div>
+      </div>
+      <div class="time-item hotel">
+        <div class="time-badge">到着後</div>
+        <div class="time-title">FSホテルで荷物預け</div>
+        <div class="time-desc">宿泊者証明書受け取り</div>
+      </div>
+      <div class="time-item ride">
+        <div class="time-badge">11時頃</div>
+        <div class="time-title">FSエリア専用入口からインパーク</div>
+        <div class="time-desc">
+          <strong>📱 インパーク直後（最優先）</strong>
+          <ul>
+            <li>モバイルオーダー取得：ランチ（バーガーorピザ系）／ディナー（アレンデール）</li>
+            <li>DPA・シングルライダー確認</li>
+            <li>ショー抽選エントリー</li>
+          </ul>
+        </div>
+      </div>
+      <div class="time-item ride">
+        <div class="time-badge">11〜15時</div>
+        <div class="time-title">🎠 アトラクション・ゲーム・グリーティング</div>
+        <div class="time-desc">
+          <span class="tag food">昼食</span> <strong>ケープコッド or セバスチャン</strong>（空いてたら）／混んでたら軽食<br><br>
+          <span class="tag ride">ゲーム</span> アブーズ・バザール、シューティングゲーム<br>
+          <span class="tag show">グリーティング</span> サルードス・アミーゴス！、ミッキー＆フレンズ・トレイル<br>
+          丸太投げ・ボール転がし
+        </div>
+      </div>
+      <div class="time-item hotel">
+        <div class="time-badge">15〜17時</div>
+        <div class="time-title">🏨 FSホテルチェックイン・休憩</div>
+        <div class="time-desc">
+          FSホテルチェックイン<br>
+          部屋でゆっくり休憩
+        </div>
+      </div>
+      <div class="time-item food">
+        <div class="time-badge">17:00頃</div>
+        <div class="time-title">🍽️ 夕食</div>
+        <div class="time-desc">
+          <strong>アレンデール・ロイヤルバンケット</strong><br>
+          ミートボールライス（オラフ型）＋パンケーキ
+        </div>
+      </div>
+      <div class="time-item ride">
+        <div class="time-badge">18:30〜</div>
+        <div class="time-title">🌙 夜の部</div>
+        <div class="time-desc">
+          FSエリア中心に空いてるアトラクションに乗る
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 2 -->
+<div class="day-card" id="sec-2">
+  <div class="day-header sea">
+    <div class="day-num">DAY2</div>
+    <div class="day-info">
+      <div class="day-date">4/8（火）</div>
+      <div class="day-park">ディズニーシー → ランド ⭐</div>
+    </div>
+  </div>
+  <div class="day-content">
+    <div class="timeline">
+      <div class="time-item ride">
+        <div class="time-badge">8:30〜9:30 ⭐最重要</div>
+        <div class="time-title">ハッピーエントリー（シー）</div>
+        <div class="time-desc">
+          <span class="highlight">アナ雪に並ぶ</span><br>
+          <span class="highlight">ラプンツェルに並ぶ</span><br>
+          ショップスタンバイパス取得（FSギフト・エンポーリオ）
+          <br><br>
+          <strong>★最優先 モバイルオーダー取得（25周年フード）</strong>
+          <ul>
+            <li>セバスチャンのカリプソキッチン：ミッキーマカロン</li>
+            <li>サルタンズ・オアシス：スペシャルサンデー</li>
+            <li>ミゲルズ・エルドラドキャンティーナ：スペシャルうきわまん</li>
+            <li>アレンデール：ミッキーチュロス</li>
+          </ul>
+          <br>
+          <span class="tag tip">DPA確認</span>
+        </div>
+      </div>
+      <div class="time-item shop">
+        <div class="time-badge">9:30〜</div>
+        <div class="time-title">🛍️ グッズ・フード・のんびり</div>
+        <div class="time-desc">
+          <strong>25周年グッズ購入</strong><br>
+          25周年フード・スウィーツを食べる<br>
+          空いてるところをまわる<br>
+          カプセルトイ スタンバイパス取得<br>
+          現地で買えないものはオンラインで注文<br>
+          <span class="tag shop">お菓子のお土産</span> ヴァレンティーナズ・スウィートで購入
+        </div>
+      </div>
+      <div class="time-item hotel">
+        <div class="time-badge">昼</div>
+        <div class="time-title">🏨 FSホテルチェックアウト → トイホへ移動</div>
+        <div class="time-desc">
+          荷物預け・宿泊者証明書受け取り
+        </div>
+      </div>
+      <div class="time-item ride">
+        <div class="time-badge">午後</div>
+        <div class="time-title">🏰 ランドインパーク</div>
+        <div class="time-desc">
+          <span class="tag food">14:00</span> <strong>クリスタルパレス・レストラン</strong>でランチ<br><br>
+          グッズ購入・アトラクション・グリーティング・ゲームをのんびり
+        </div>
+      </div>
+      <div class="time-item food">
+        <div class="time-badge">17:00頃</div>
+        <div class="time-title">🍽️ 夕食</div>
+        <div class="time-desc">
+          <strong>ヒューイ・デューイ・ルーイのグッドタイム・カフェ</strong>
+        </div>
+      </div>
+      <div class="time-item hotel">
+        <div class="time-badge">夜</div>
+        <div class="time-title">🏨 疲れたらトイホへ戻る</div>
+        <div class="time-desc">
+          その日の体力次第で決める
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DAY 3 -->
+<div class="day-card" id="sec-3">
+  <div class="day-header land">
+    <div class="day-num">DAY3</div>
+    <div class="day-info">
+      <div class="day-date">4/9（水）</div>
+      <div class="day-park">帰宅 🏠</div>
+    </div>
+  </div>
+  <div class="day-content">
+    <div class="timeline">
+      <div class="time-item food">
+        <div class="time-badge">朝</div>
+        <div class="time-title">🍽️ 朝食</div>
+        <div class="time-desc">
+          <strong>ロッツォ・ガーデンカフェ</strong>
+        </div>
+      </div>
+      <div class="time-item hotel">
+        <div class="time-badge">午前</div>
+        <div class="time-title">🏨 トイホでゆっくり過ごす</div>
+        <div class="time-desc">
+          チェックアウトまでトイホでゆっくり
+        </div>
+      </div>
+      <div class="time-item transport">
+        <div class="time-badge">昼</div>
+        <div class="time-title">🏠 帰宅</div>
+        <div class="time-desc">
+          舞浜 → 中野（約50分）
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 食事まとめ -->
+<section class="sec" id="sec-4">
+  <h2 class="sec-title"><span class="icon">🍽️</span>食事まとめ</h2>
+  <table class="food-table">
+    <thead>
+      <tr>
+        <th class="day-col">日</th>
+        <th class="meal-col">食事</th>
+        <th>場所</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>4/7</td>
+        <td>ランチ</td>
+        <td><strong>ケープコッド or セバスチャン</strong></td>
+        <td>混んでたら軽食</td>
+      </tr>
+      <tr>
+        <td>4/7</td>
+        <td>ディナー</td>
+        <td><strong>アレンデール・ロイヤルバンケット</strong></td>
+        <td>ミートボールライス＋パンケーキ</td>
+      </tr>
+      <tr>
+        <td>4/8</td>
+        <td>フード</td>
+        <td><strong>25周年メニュー各店</strong></td>
+        <td>モバオダ必須</td>
+      </tr>
+      <tr>
+        <td>4/8</td>
+        <td>ランチ</td>
+        <td><strong>クリスタルパレス・レストラン</strong></td>
+        <td>14:00〜</td>
+      </tr>
+      <tr>
+        <td>4/8</td>
+        <td>ディナー</td>
+        <td><strong>ヒューイ・デューイ・ルーイ</strong></td>
+        <td>17:00頃</td>
+      </tr>
+      <tr>
+        <td>4/9</td>
+        <td>朝食</td>
+        <td><strong>ロッツォ・ガーデンカフェ</strong></td>
+        <td>トイホ</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 25周年メニュー＆グッズ画像 -->
+<section class="sec" id="sec-5">
+  <h2 class="sec-title"><span class="icon">📸</span>25周年メニュー＆グッズ</h2>
+  <p style="font-size:0.85rem;color:var(--text2);margin-bottom:12px;">画像をタップで拡大できます</p>
+
+  <h3 style="font-size:0.95rem;color:var(--sea-c);margin:16px 0 8px;font-weight:700;">🌊 シー（25周年グッズ）</h3>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.37.00.png" onclick="openLightbox(this.src)" alt="キャップ ¥3,400">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.35.31.png" onclick="openLightbox(this.src)" alt="マカロン">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.35.43.png" onclick="openLightbox(this.src)" alt="スペシャルサンデー">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.36.05.png" onclick="openLightbox(this.src)" alt="チュロス">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.35.54.png" onclick="openLightbox(this.src)" alt="浮き輪マン">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.36.23.png" onclick="openLightbox(this.src)" alt="スーベニアカップ">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.36.30.png" onclick="openLightbox(this.src)" alt="スーベニアプレート">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.38.34.png" onclick="openLightbox(this.src)" alt="クッキー">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.39.12.png" onclick="openLightbox(this.src)" alt="おせんべい">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.38.45.png" onclick="openLightbox(this.src)" alt="ポテトスナック">
+    </div>
+  </div>
+
+  <h3 style="font-size:0.95rem;color:var(--land-c);margin:24px 0 8px;font-weight:700;">🍬 ランド（ヴァネロペ）</h3>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.56.09.png" onclick="openLightbox(this.src)" alt="キャップ">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.56.19.png" onclick="openLightbox(this.src)" alt="カチューシャ">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.42.03.png" onclick="openLightbox(this.src)" alt="スーベニアカップ">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.42.12.png" onclick="openLightbox(this.src)" alt="スーベニアプレート">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.56.57.png" onclick="openLightbox(this.src)" alt="おせんべい">
+    </div>
+    <div class="gallery-item">
+      <img src="スクリーンショット 2026-03-21 14.56.33.png" onclick="openLightbox(this.src)" alt="クッキー">
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img src="" id="lightbox-img" alt="拡大画像">
+</div>
+
+<!-- 買い物メモ -->
+<section class="sec" id="sec-6">
+  <h2 class="sec-title"><span class="icon">🛍️</span>買い物メモ</h2>
+  <h3 style="font-size:0.9rem;color:var(--text2);margin-bottom:12px;">現地で必ず買うもの</h3>
+  <div class="shop-list">
+    <div class="shop-item">
+      <span class="icon">🧢</span>
+      <div>
+        <div class="name">息子：25周年キャップ</div>
+        <div class="price">¥3,400</div>
+        <div class="note">エンポーリオ or FSギフト（シー）</div>
+      </div>
+    </div>
+    <div class="shop-item">
+      <span class="icon">👸</span>
+      <div>
+        <div class="name">ヴァネロペの被り物</div>
+        <div class="note">ディズニーランドで購入</div>
+      </div>
+    </div>
+    <div class="shop-item">
+      <span class="icon">🍪</span>
+      <div>
+        <div class="name">お菓子のお土産</div>
+        <div class="note">ヴァレンティーナズ・スウィート等（スタンバイパス不要）</div>
+      </div>
+    </div>
+    <div class="shop-item">
+      <span class="icon">🥤</span>
+      <div>
+        <div class="name">スーベニアカップ＆プレート付きメニュー</div>
+        <div class="price">¥1,450 各</div>
+        <div class="note">ヒューイ・デューイ・ルーイのグッドタイム・カフェ（ランド）</div>
+      </div>
+    </div>
+    <div class="shop-item">
+      <span class="icon">🔮</span>
+      <div>
+        <div class="name">カプセルトイ（ショッピングバッグ）</div>
+        <div class="price">¥500/回 × 3回まで</div>
+      </div>
+    </div>
+  </div>
+  <div class="tip-box">
+    <div class="tip-title">💡 オンラインショップ情報</div>
+    <div class="tip-content">
+      シー入園日23:45まで注文可。<br>
+      ¥10,000以上送料無料。<br>
+      現地で買えないものはオンライン注文がおすすめ。
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  🏰 Tokyo Disney Resort Trip Plan 2025 - Aプラン ✨
+</footer>
+
+<script>
+function showDay(n) {
+  document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',i===n));
+  document.querySelectorAll('[id^="sec-"]').forEach((s,i)=>s.style.display=(i===n||n===0&&i>0)?'block':'none');
+  if(n>0) {
+    document.getElementById('sec-'+n).scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+</script>
+
+</body>
+</html>
